@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <_name>Layer label To ID</_name>
+  <id>org.label_to_id</id>
+  <dependency type="executable" location="extensions">label_to_id.py</dependency>
+
+  <label>Change id of each layer to its label.</label>
+  <param name="tab" type="notebook">
+    <page name="options" gui-text="Options">
+
+      <param name="regex-layer" type="string" gui-text="Layer filter: " indent="1">.*</param>
+      <param name="space-replace" type="string" gui-text="White space replacement: " indent="1">-</param>
+      <param name="use-uid" type="bool" gui-text="Append suffix uid (_X82D): " indent="1">true</param>
+      <param name="regex-name" type="string" gui-text="Name extraction: " indent="1">.*</param>
+      <separator/>
+      <spacer/>
+
+    </page>
+
+  </param>
+
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu _name="Arrange"/>
+    </effects-menu>
+  </effect>
+
+  <script>
+    <command reldir="extensions" interpreter="python">label_to_id.py</command>
+  </script>
+</inkscape-extension>
